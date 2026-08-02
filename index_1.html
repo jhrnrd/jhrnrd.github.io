@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jauhar Nurandyo | Product Manager Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --bg: #020617;
+            --card-bg: #0f172a;
+            --border: #1e293b;
+            --gradient-start: #3b82f6;
+            --gradient-end: #8b5cf6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content { max-width: 800px; position: relative; z-index: 1; }
+
+        .hero-badge svg { width: 14px; height: 14px; }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.3s both;
+            flex-wrap: wrap;
+        }
+
+        .ic { width: 1em; height: 1em; flex-shrink: 0; }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+            border-color: var(--accent);
+        }
+
+        section {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        /* ---------- Logos & marks ---------- */
+        .defs-svg { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+        .section-mark {
+            width: 54px; height: 54px;
+            margin: 0 auto 1.25rem;
+            border-radius: 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 26px rgba(59, 130, 246, 0.12);
+        }
+        .section-mark svg { width: 26px; height: 26px; }
+
+        .brand-lockup {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.25rem 0.7rem 0.25rem 0.45rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 50px;
+            white-space: nowrap;
+        }
+        .brand-lockup svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+        .sample-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.9rem;
+        }
+        .sample-brand svg { width: 22px; height: 22px; flex-shrink: 0; }
+        .sample-brand-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text);
+        }
+        .sample-brand-sub {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .mockup-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .mockup-logo svg { width: 14px; height: 14px; }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-image { position: relative; display: flex; justify-content: center; }
+
+        .about-image img {
+            width: 100%;
+            max-width: 220px;
+            border-radius: 16px;
+            filter: grayscale(20%);
+            transition: filter 0.5s;
+            border: 1px solid var(--border);
+        }
+
+        .about-image:hover img { filter: grayscale(0%); }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 12px; left: 50%;
+            transform: translateX(calc(-50% + 10px));
+            width: 220px; height: 100%;
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        .about-content h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .about-content strong { color: var(--text); }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover { border-color: var(--accent); transform: translateX(5px); }
+        .skill-item .ic { color: var(--accent); width: 19px; height: 19px; }
+
+        /* ---------- Process (5 steps) ---------- */
+        .process-section {
+            background: linear-gradient(180deg, transparent, rgba(59, 130, 246, 0.03), transparent);
+            max-width: 1300px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            position: relative;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem 1.25rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .process-step:hover { border-color: var(--accent); transform: translateY(-5px); }
+
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            right: -1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+            font-size: 1.3rem;
+            opacity: 0.5;
+        }
+
+        .process-step:last-child::after { display: none; }
+
+        .process-icon {
+            width: 56px; height: 56px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            font-size: 1.35rem;
+            color: white;
+        }
+
+        .process-icon svg { width: 27px; height: 27px; }
+
+        .process-step h3 { font-size: 1.02rem; margin-bottom: 0.6rem; }
+        .process-step p { color: var(--text-muted); font-size: 0.85rem; }
+
+        .process-ai-tag {
+            display: inline-block;
+            margin-top: 0.75rem;
+            padding: 0.2rem 0.7rem;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 50px;
+        }
+
+        /* ---------- Work samples ---------- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.15);
+        }
+
+        .sample-type {
+            position: absolute;
+            top: 1.1rem; left: 1.1rem;
+            z-index: 2;
+            padding: 0.3rem 0.9rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: white;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50px;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+        }
+
+        .project-mockup {
+            position: relative;
+            padding: 1.5rem;
+            padding-top: 3.2rem;
+            background: linear-gradient(135deg, #0c1220, #1a1f35);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .browser-frame {
+            background: #0a0e1a;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+        }
+
+        .browser-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1rem;
+            background: #0d1117;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .browser-dot.red { background: #ff5f56; }
+        .browser-dot.yellow { background: #ffbd2e; }
+        .browser-dot.green { background: #27c93f; }
+
+        .browser-url {
+            flex: 1;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #64748b;
+            background: #161b22;
+            padding: 0.2rem 1rem;
+            border-radius: 4px;
+            margin-left: 1rem;
+        }
+
+        .browser-content {
+            padding: 1.5rem;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mockup-header { display: flex; justify-content: space-between; align-items: center; }
+        .mockup-nav { display: flex; gap: 1rem; }
+        .mockup-nav span { width: 30px; height: 6px; background: #1e293b; border-radius: 3px; }
+
+        .mockup-hero { text-align: center; padding: 1.5rem 0; }
+        .mockup-hero h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text); }
+        .mockup-hero p { font-size: 0.75rem; color: var(--text-muted); }
+
+        .mockup-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        .mockup-card {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .mockup-card-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            opacity: 0.8;
+            margin-bottom: 0.3rem;
+        }
+
+        .mockup-card-value { font-size: 1.2rem; font-weight: 700; }
+
+        .mockup-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .mockup-stat {
+            background: #1e293b;
+            padding: 0.5rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .mockup-stat-label {
+            font-size: 0.55rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .mockup-stat-value {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* ---------- Mini-UI previews: show the actual work ---------- */
+        .mini-ui { display: flex; flex-direction: column; gap: 0.6rem; }
+
+        .mini-banner .ic { width: 11px; height: 11px; flex-shrink: 0; }
+
+        .mini-banner {
+            display: flex; align-items: center; gap: 0.45rem;
+            padding: 0.4rem 0.6rem;
+            border-radius: 6px;
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            color: #fca5a5;
+            font-size: 0.58rem;
+            line-height: 1.4;
+        }
+
+        .pp-grid { display: grid; grid-template-columns: 1.5fr repeat(4, 1fr); gap: 2px; }
+        .pp-cell {
+            background: #141b2e; padding: 0.32rem 0.35rem;
+            text-align: center; color: var(--text-muted);
+            border-radius: 3px; font-size: 0.58rem;
+        }
+        .pp-cell.head {
+            background: #0d1117; color: #64748b;
+            text-transform: uppercase; font-size: 0.5rem; letter-spacing: 0.04em;
+        }
+        .pp-cell.cat { text-align: left; color: var(--text); font-weight: 600; }
+        .pp-cell.short {
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #fca5a5; font-weight: 700;
+        }
+
+        .mini-footnote { font-size: 0.55rem; color: #64748b; display: flex; gap: 0.4rem; flex-wrap: wrap; }
+        .mini-footnote span { padding: 0.15rem 0.55rem; border: 1px solid var(--border); border-radius: 50px; }
+
+        .phone-wrap { display: flex; justify-content: center; padding: 0.5rem 0; }
+        .phone-frame {
+            width: 180px;
+            background: #0a0e1a;
+            border: 1px solid #1e293b;
+            border-radius: 20px;
+            padding: 0.7rem 0.6rem;
+            display: flex; flex-direction: column; gap: 0.5rem;
+        }
+        .phone-notch { width: 56px; height: 5px; border-radius: 3px; background: #1e293b; margin: 0 auto; }
+        .mini-map {
+            position: relative; height: 88px; border-radius: 10px;
+            background: linear-gradient(135deg, #0b1a2e, #10243c);
+            border: 1px solid #16283f; overflow: hidden;
+        }
+        .mini-route { position: absolute; left: 12%; right: 14%; top: 52%; border-top: 2px dashed rgba(96, 165, 250, 0.55); }
+        .mini-port { position: absolute; width: 7px; height: 7px; border-radius: 50%; background: #60a5fa; }
+        .mini-vessel { position: absolute; font-size: 0.75rem; transform: translate(-50%, -58%); }
+        .vessel-card {
+            background: #101827; border: 1px solid var(--border);
+            border-radius: 8px; padding: 0.45rem 0.55rem;
+            display: flex; flex-direction: column; gap: 0.28rem;
+        }
+        .vc-row { display: flex; justify-content: space-between; align-items: center; gap: 0.4rem; }
+        .vc-name { color: var(--text); font-weight: 700; font-size: 0.6rem; }
+        .vc-status { color: #34d399; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.03em; }
+        .vc-eta { color: var(--text-muted); font-size: 0.55rem; }
+        .vc-bar { height: 4px; border-radius: 2px; background: #1e293b; overflow: hidden; }
+        .vc-bar i { display: block; height: 100%; width: 68%; background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end)); }
+
+        .flow-steps { display: flex; flex-direction: column; gap: 0.5rem; }
+        .flow-step { display: flex; gap: 0.55rem; align-items: flex-start; }
+        .flow-num {
+            width: 18px; height: 18px; flex: 0 0 18px;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            color: var(--accent-light);
+            font-size: 0.55rem; font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            margin-top: 0.05rem;
+        }
+        .flow-text { font-size: 0.62rem; color: var(--text-muted); line-height: 1.45; }
+        .flow-text b { color: var(--text); font-weight: 600; }
+        .flow-outcome {
+            margin-top: 0.1rem; align-self: flex-start;
+            padding: 0.3rem 0.75rem; border-radius: 50px;
+            font-size: 0.6rem; font-weight: 700; color: #34d399;
+            background: rgba(52, 211, 153, 0.08);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+        }
+
+        .tier-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+        .tier-col {
+            background: #0d1424; border: 1px solid var(--border);
+            border-radius: 8px; padding: 0.45rem;
+            display: flex; flex-direction: column; gap: 0.35rem;
+        }
+        .tier-title {
+            font-size: 0.5rem; letter-spacing: 0.05em; text-transform: uppercase;
+            color: #64748b; font-weight: 700;
+            display: flex; align-items: center; gap: 0.3rem;
+        }
+        .tier-title i { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+        .tier-core i { background: #34d399; }
+        .tier-std i { background: #60a5fa; }
+        .tier-spec i { background: #a78bfa; }
+        .ticket {
+            background: #141b2e; border: 1px solid #1f2a44;
+            border-radius: 5px; padding: 0.3rem 0.4rem;
+            font-size: 0.56rem; color: var(--text-muted); line-height: 1.35;
+        }
+        .ticket b { color: var(--text); font-weight: 600; display: block; }
+        .ticket.warn { border-color: rgba(245, 158, 11, 0.45); background: rgba(245, 158, 11, 0.07); }
+        .ticket.warn .tk-tag { color: #fbbf24; }
+        .ticket.crit { border-color: rgba(239, 68, 68, 0.45); background: rgba(239, 68, 68, 0.07); }
+        .ticket.crit .tk-tag { color: #fca5a5; }
+        .tk-tag {
+            font-size: 0.48rem; text-transform: uppercase;
+            letter-spacing: 0.04em; font-weight: 700; color: #64748b;
+        }
+
+        .project-info { padding: 1.5rem; }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-tag {
+            padding: 0.3rem 0.8rem;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-light);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .project-info h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+
+        .project-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .project-link .ic { width: 15px; height: 15px; }
+        .project-link:hover { color: var(--accent-light); }
+
+        /* ---------- Achievements ---------- */
+        .achievements-section {
+            background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.03), transparent);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .achievement-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .achievement-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.12);
+        }
+
+        .achievement-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .achievement-icon {
+            width: 42px; height: 42px;
+            border-radius: 12px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .achievement-icon svg { width: 21px; height: 21px; }
+
+        .achievement-company {
+            padding: 0.25rem 0.85rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 50px;
+            white-space: nowrap;
+        }
+
+        .achievement-card h3 {
+            font-size: 1.05rem;
+            line-height: 1.4;
+        }
+
+        .achievement-card h3 span {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .achievement-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ---------- Contact / footer ---------- */
+        .contact-section { text-align: center; padding: 6rem 5%; }
+        .contact-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .contact-section p { color: var(--text-muted); margin-bottom: 2.5rem; font-size: 1.1rem; }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-link {
+            width: 50px; height: 50px;
+            border-radius: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link .ic { width: 21px; height: 21px; }
+
+        .social-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .contact-email .ic { width: 17px; height: 17px; }
+
+        .contact-email:hover {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 5%;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 1100px) {
+            .process-steps { grid-template-columns: repeat(2, 1fr); }
+            .process-step::after { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about { grid-template-columns: 1fr; text-align: center; }
+            .about-image { margin-bottom: 2rem; }
+            .about-image::before { left: 50%; transform: translateX(calc(-50% + 10px)); }
+            .process-steps { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <svg class="defs-svg" aria-hidden="true" focusable="false">
+        <defs>
+            <linearGradient id="gm" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#8b5cf6"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <nav>
+        <div class="logo">JN.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#work">Work Samples</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8c3.2 2.4 4.8 5.6 4.8 9.2L12 16.4 7.2 12c0-3.6 1.6-6.8 4.8-9.2z"/><circle cx="12" cy="10" r="1.6"/><path d="M9.4 17.4 8 21M14.6 17.4 16 21M12 18v3.4"/></svg>
+                Product Manager · ERP · SCM · GovTech · Maritime
+            </div>
+            <h1>Hi, I'm <span>Jauhar Nurandyo</span></h1>
+            <p>4 years shipping products across ERP, logistics, govtech, and maritime. Currently defining foundational platform architecture for an integrated SCM & ERP ecosystem serving 200+ retail outlets — from core data models and system boundaries to POS integration and unified SSO.</p>
+            <div class="hero-buttons">
+                <a href="#work" class="btn btn-primary">
+                    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="7" width="18.4" height="13" rx="2.2"/><path d="M8.6 7V5.4A1.6 1.6 0 0 1 10.2 3.8h3.6A1.6 1.6 0 0 1 15.4 5.4V7"/><path d="M2.8 12.4h18.4"/></svg>
+                    View My Work
+                </a>
+                <a href="https://www.linkedin.com/in/jauhar-nurandyo/" target="_blank" class="btn btn-secondary">
+                    <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 2.5h-15a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h15a2 2 0 0 0 2-2v-15a2 2 0 0 0-2-2zM8.1 18.4H5.4V9.7h2.7zM6.75 8.5a1.57 1.57 0 1 1 0-3.14a1.57 1.57 0 0 1 0 3.14zM18.6 18.4h-2.7v-4.24c0-1.01-.02-2.31-1.41-2.31-1.41 0-1.63 1.1-1.63 2.24v4.31h-2.7V9.7h2.59v1.19h.04a2.84 2.84 0 0 1 2.56-1.4c2.73 0 3.25 1.8 3.25 4.15z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/jhrnrd" target="_blank" class="btn btn-secondary">
+                    <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.1a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.5 9.5 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.690 3.85-2.34 4.7-4.57 4.94.36.31.68.92.68 1.86l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2.1z"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about">
+            <div class="about-image">
+                <img src="self-photo.png" alt="Jauhar Nurandyo">
+            </div>
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>I've shipped across four distinct domains in four years — <strong>logistics</strong>, <strong>maritime tech</strong>, <strong>govtech</strong>, and now <strong>enterprise ERP & platform</strong>. That range taught me how to enter complex industries fast, find the signal in stakeholder noise, and turn ambiguity into clear product direction.</p>
+                <p>Today I lead foundational platform work: defining core data models, system boundaries, and integration contracts that everything else is built on. I care about architecture that scales, auth flows that don't leak money, and squads that move with clarity.</p>
+                <p>I also use AI agents and LLM workflows to accelerate architecture design, prototyping, and documentation — not to replace rigor, but to compress the time between understanding and shipping.</p>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9.2" y="2.8" width="5.6" height="4.6" rx="1.2"/><rect x="2.6" y="16.6" width="5.6" height="4.6" rx="1.2"/><rect x="15.8" y="16.6" width="5.6" height="4.6" rx="1.2"/><path d="M12 7.4v4.4M5.4 16.6v-2.6h13.2v2.6M12 11.8v2.2"/></svg>
+                        <span>ERP & Platform Architecture</span>
+                    </div>
+                    <div class="skill-item">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 16.4h9.6V7.6H5.2L2.5 11.2z"/><path d="M12.1 16.4h4.3v-5.2h-1.9"/><circle cx="7" cy="18.8" r="1.7"/><circle cx="17.6" cy="18.8" r="1.7"/><path d="M15.5 6.6h6M17.5 9.6h4"/></svg>
+                        <span>Supply Chain & Logistics</span>
+                    </div>
+                    <div class="skill-item">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.9 20 6v6.1c0 4-3.3 7.4-8 9-4.7-1.6-8-5-8-9V6z"/><path d="M12 2.9v18.2"/></svg>
+                        <span>SSO & Auth Systems</span>
+                    </div>
+                    <div class="skill-item">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 9.4 12 4l8.8 5.4"/><path d="M4.8 9.4v8.2M9.6 9.4v8.2M14.4 9.4v8.2M19.2 9.4v8.2"/><path d="M2.8 20.4h18.4"/></svg>
+                        <span>GovTech & Enterprise</span>
+                    </div>
+                    <div class="skill-item">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.2" y="8" width="15.6" height="11" rx="2.6"/><path d="M12 4.2V8"/><circle cx="12" cy="3.2" r="1.2"/><circle cx="9.2" cy="13" r="1.3"/><circle cx="14.8" cy="13" r="1.3"/><path d="M1.8 12.2v3M22.2 12.2v3"/></svg>
+                        <span>AI/LLM Workflow Integration</span>
+                    </div>
+                    <div class="skill-item">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.2h7L18.5 8.7v12H6z"/><path d="M13 3.2v5.5h5.5"/><path d="M8.8 12.4h6.4M8.8 15.6h6.4M8.8 18h4"/></svg>
+                        <span>PRD Authoring & Strategy</span>
+                    </div>
+                    <div class="skill-item">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.2" cy="8" r="3.4"/><path d="M2.8 20c0-3.3 2.9-5.6 6.4-5.6s6.4 2.3 6.4 5.6"/><path d="M16.4 5.1a3.4 3.4 0 0 1 0 6.4M18 14.9c2 .8 3.2 2.5 3.2 5.1"/></svg>
+                        <span>Cross-Functional Leadership</span>
+                    </div>
+                    <div class="skill-item">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 3.4v17.2h17.2"/><path d="m6.8 15.6 4-4.4 3 2.6 4.6-6"/></svg>
+                        <span>Agile/Scrum & OKRs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section" id="process">
+        <div class="section-header">
+            <div class="section-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="url(#gm)" stroke-width="1.7" stroke-linecap="round">
+                    <circle cx="4.5" cy="6" r="2.4"/>
+                    <circle cx="19.5" cy="6" r="2.4"/>
+                    <circle cx="12" cy="18" r="2.4"/>
+                    <path d="M7 6h10M6 8.2 10.4 15.9M18 8.2 13.6 15.9"/>
+                </svg>
+            </div>
+            <h2>My Process</h2>
+            <p>Prototype before spec. I validate how a product should work — its flows, data, and edge cases — before a single requirement is locked.</p>
+        </div>
+        <div class="process-steps">
+            <div class="process-step fade-in">
+                <div class="process-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7h7M3.5 11h5M3.5 15h3"/><circle cx="15" cy="12" r="5"/><path d="m18.7 15.7 2.8 2.8"/></svg>
+                </div>
+                <h3>Understand & Research</h3>
+                <p>Deep-dive into user needs, stakeholder context, and how the domain actually operates. No shortcuts.</p>
+            </div>
+            <div class="process-step fade-in">
+                <div class="process-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="2.2"/><circle cx="8" cy="9.5" r="1.7"/><circle cx="16" cy="9.5" r="1.7"/><circle cx="12" cy="15.5" r="1.7"/><path d="M9.7 9.5h4.6M9 11l2 3M15 11l-2 3"/></svg>
+                </div>
+                <h3>Model & Prototype</h3>
+                <p>Picture the user's mental model, define the end-to-end flows, then build an interactive prototype to validate both.</p>
+                <span class="process-ai-tag">AI agents · skills · instructions</span>
+            </div>
+            <div class="process-step fade-in">
+                <div class="process-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.2h7L18.5 8.7v12H6z"/><path d="M13 3.2v5.5h5.5"/><path d="m8.7 12.6 1.2 1.2 2.6-2.6M8.7 16.6l1.2 1.2 2.6-2.6"/></svg>
+                </div>
+                <h3>Define Requirements</h3>
+                <p>Turn the validated prototype into a precise PRD — user stories, system rules, edge cases, and boundaries.</p>
+                <span class="process-ai-tag">AI-assisted</span>
+            </div>
+            <div class="process-step fade-in">
+                <div class="process-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m8.5 7.5-5 4.5 5 4.5M15.5 7.5l5 4.5-5 4.5"/><path d="M13.2 5.5 10.8 18.5"/></svg>
+                </div>
+                <h3>Build</h3>
+                <p>Lead cross-functional squads through delivery. The prototype keeps everyone aligned on what "done" looks like.</p>
+            </div>
+            <div class="process-step fade-in">
+                <div class="process-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8c3.2 2.4 4.8 5.6 4.8 9.2L12 16.4 7.2 12c0-3.6 1.6-6.8 4.8-9.2z"/><circle cx="12" cy="10" r="1.6"/><path d="M9.4 17.4 8 21M14.6 17.4 16 21M12 18v3.4"/></svg>
+                </div>
+                <h3>Ship</h3>
+                <p>Launch, measure against the plan, and iterate. Then feed what reality taught us back into the next cycle.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="work">
+        <div class="section-header">
+            <div class="section-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="url(#gm)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 3.5h7l2.5 2.5v5"/>
+                    <path d="M4 3.5v13h4"/>
+                    <path d="M6.4 7h4M6.4 10h3"/>
+                    <rect x="11" y="12" width="9.5" height="8.5" rx="1.6"/>
+                    <path d="m14.8 15.2 3 1.55-3 1.55z"/>
+                </svg>
+            </div>
+            <h2>Work Samples</h2>
+            <p>Not just outcomes — the actual craft. Each sample shows how I take a product from raw requirement to validated design.</p>
+        </div>
+        <div class="projects-grid">
+
+            <div class="project-card fade-in">
+                <div class="project-mockup">
+                    <span class="sample-type">PRD → Prototype</span>
+                    <div class="browser-frame">
+                        <div class="browser-header">
+                            <div class="browser-dot red"></div>
+                            <div class="browser-dot yellow"></div>
+                            <div class="browser-dot green"></div>
+                            <div class="browser-url">production-planning.internal</div>
+                        </div>
+                        <div class="browser-content">
+                            <div class="mockup-header">
+                                <div class="mockup-logo">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+                                        <path d="M3 6h11M3 12h17M3 18h8"/>
+                                    </svg>
+                                    Dashflow · Planning
+                                </div>
+                                <div class="mockup-nav">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="mini-ui">
+                                <div class="mini-banner">
+                                    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6 22 20.4H2z"/><path d="M12 9.6v4.6M12 17.3h.01"/></svg>
+                                    Coverage guardrail: PEACH PREMIX short from D+3 — flag cascades forward
+                                </div>
+                                <div class="pp-grid">
+                                    <div class="pp-cell head">Category</div>
+                                    <div class="pp-cell head">Brkfst</div>
+                                    <div class="pp-cell head">Lunch</div>
+                                    <div class="pp-cell head">Dinner</div>
+                                    <div class="pp-cell head">Ovngt</div>
+                                    <div class="pp-cell cat">Frutarian</div>
+                                    <div class="pp-cell">324 g</div>
+                                    <div class="pp-cell">2,717 g</div>
+                                    <div class="pp-cell">1,844 g</div>
+                                    <div class="pp-cell">83 g</div>
+                                    <div class="pp-cell cat">Pink Lava</div>
+                                    <div class="pp-cell">901 g</div>
+                                    <div class="pp-cell short">4,505 g !</div>
+                                    <div class="pp-cell">2,402 g</div>
+                                    <div class="pp-cell">0 g</div>
+                                    <div class="pp-cell cat">Chicken · hourly</div>
+                                    <div class="pp-cell">14 pc</div>
+                                    <div class="pp-cell">44 pc</div>
+                                    <div class="pp-cell">31 pc</div>
+                                    <div class="pp-cell">6 pc</div>
+                                </div>
+                                <div class="mini-footnote">
+                                    <span>Plan = intent only</span>
+                                    <span>Unmapped items blocked</span>
+                                    <span>Actuals held until GR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="project-tag">QSR ERP</span>
+                        <span class="project-tag">Systems Design</span>
+                        <span class="project-tag">AI Prototyping</span>
+                    </div>
+                    <div class="sample-brand">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="url(#gm)" stroke-width="2.4" stroke-linecap="round">
+                            <path d="M3 6h11M3 12h17M3 18h8"/>
+                        </svg>
+                        <span class="sample-brand-name">Dashflow</span>
+                        <span class="sample-brand-sub">QSR ERP</span>
+                    </div>
+                    <h3>Production Planning: BRD to Working Prototype</h3>
+                    <p>Full design cycle from a draft BRD to a three-screen interactive prototype — HO category mapping, outlet planning, and kitchen production entry — sharing one live data model. Went beyond the spec to encode system invariants: plans record intent without moving stock, unmapped items are blocked from planning, a cumulative stock-coverage guardrail flags shortage cascades across the horizon, and production entries are held (not lost) until goods receipt clears.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.2h7L18.5 8.7v12H6z"/><path d="M13 3.2v5.5h5.5"/><path d="M8.8 12.4h6.4M8.8 15.6h6.4M8.8 18h4"/></svg> View PRD
+                        </a>
+                        <a href="#" class="project-link">
+                            <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 4.8v14.4L19.5 12z"/></svg> Try Prototype
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-mockup">
+                    <span class="sample-type">PRD → Prototype</span>
+                    <div class="phone-wrap">
+                        <div class="phone-frame">
+                            <div class="phone-notch"></div>
+                            <div class="mini-map">
+                                <div class="mini-route"></div>
+                                <div class="mini-port" style="left:10%; top:48%;"></div>
+                                <div class="mini-port" style="right:12%; top:48%;"></div>
+                                <div class="mini-vessel" style="left:58%; top:52%;">🚢</div>
+                            </div>
+                            <div class="vessel-card">
+                                <div class="vc-row">
+                                    <span class="vc-name">MV Sinar Jaya 07</span>
+                                    <span class="vc-status">● EN ROUTE</span>
+                                </div>
+                                <div class="vc-eta">Surabaya → Tj. Priok · ETA 14:20</div>
+                                <div class="vc-bar"><i></i></div>
+                            </div>
+                            <div class="vessel-card">
+                                <div class="vc-row">
+                                    <span class="vc-name">Voyage log</span>
+                                    <span class="vc-eta">synced ✓</span>
+                                </div>
+                                <div class="vc-eta">Position pushed to ops dashboard</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="project-tag">Maritime Tech</span>
+                        <span class="project-tag">Mobile App</span>
+                        <span class="project-tag">End-to-End</span>
+                    </div>
+                    <div class="sample-brand">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="url(#gm)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3v7"/>
+                            <path d="m12 4 5 5-5 1.6L7 9z"/>
+                            <path d="M4 13.5h16l-2.6 5.4a3 3 0 0 1-2.7 1.7H9.3a3 3 0 0 1-2.7-1.7z"/>
+                        </svg>
+                        <span class="sample-brand-name">Ship to Shore</span>
+                        <span class="sample-brand-sub">Maritime</span>
+                    </div>
+                    <h3>Ship to Shore: PRD to Shipped Mobile App</h3>
+                    <p>Owned the full arc from requirements to launch for a vessel-tracking mobile application. Authored the PRD, led sprint ceremonies across business, operations, engineering, and design, and shipped one month ahead of deadline — wired live into the operations dashboard, while continuously resolving critical bugs inherited from earlier development cycles.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.2h7L18.5 8.7v12H6z"/><path d="M13 3.2v5.5h5.5"/><path d="M8.8 12.4h6.4M8.8 15.6h6.4M8.8 18h4"/></svg> View PRD
+                        </a>
+                        <a href="#" class="project-link">
+                            <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 4.8v14.4L19.5 12z"/></svg> Try Prototype
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-mockup">
+                    <span class="sample-type">Problem-Solving Case</span>
+                    <div class="browser-frame">
+                        <div class="browser-header">
+                            <div class="browser-dot red"></div>
+                            <div class="browser-dot yellow"></div>
+                            <div class="browser-dot green"></div>
+                            <div class="browser-url">superapp.internal</div>
+                        </div>
+                        <div class="browser-content">
+                            <div class="mockup-header">
+                                <div class="mockup-logo">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                        <path d="M12 21a9 9 0 1 0-9-9"/>
+                                        <path d="M12 16a4 4 0 1 0-4-4"/>
+                                        <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/>
+                                    </svg>
+                                    SuperApp · M&amp;E
+                                </div>
+                                <div class="mockup-nav">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="mini-ui">
+                                <div class="flow-steps">
+                                    <div class="flow-step">
+                                        <div class="flow-num">1</div>
+                                        <div class="flow-text"><b>Diagnose</b> — institutions reporting in silos; no shared status, rating bleeding at 2.7</div>
+                                    </div>
+                                    <div class="flow-step">
+                                        <div class="flow-num">2</div>
+                                        <div class="flow-text"><b>Reframe</b> — the bottleneck is coordination, not tooling</div>
+                                    </div>
+                                    <div class="flow-step">
+                                        <div class="flow-num">3</div>
+                                        <div class="flow-text"><b>Design</b> — one M&E system, real-time status visible to every institution and vendor</div>
+                                    </div>
+                                    <div class="flow-step">
+                                        <div class="flow-num">4</div>
+                                        <div class="flow-text"><b>Execute</b> — systematic bug triage, ranked by user impact</div>
+                                    </div>
+                                    <div class="flow-outcome">Outcome: store rating 2.7 → 3.2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="project-tag">GovTech</span>
+                        <span class="project-tag">M&E</span>
+                        <span class="project-tag">Stakeholder Mgmt</span>
+                    </div>
+                    <div class="sample-brand">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="url(#gm)" stroke-width="1.9" stroke-linecap="round">
+                            <path d="M12 21a9 9 0 1 0-9-9"/>
+                            <path d="M12 16a4 4 0 1 0-4-4"/>
+                            <circle cx="12" cy="12" r="1.5" fill="url(#gm)" stroke="none"/>
+                        </svg>
+                        <span class="sample-brand-name">National SuperApp</span>
+                        <span class="sample-brand-sub">GovTech</span>
+                    </div>
+                    <h3>POLRI SuperApp: A Problem-Solving Walkthrough</h3>
+                    <p>A step-by-step case study in untangling a national-scale problem: fragmented monitoring across institutions and third-party vendors. Shows how I diagnosed the coordination bottleneck, designed a centralized monitoring & evaluation system with real-time status reporting, and ran systematic bug triage that lifted the app store rating from 2.7 to 3.2.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.6C10.2 5.1 7.9 4.4 4.6 4.4A1.1 1.1 0 0 0 3.5 5.5v12a1.1 1.1 0 0 0 1.1 1.1c3.3 0 5.6.7 7.4 2.2 1.8-1.5 4.1-2.2 7.4-2.2a1.1 1.1 0 0 0 1.1-1.1v-12a1.1 1.1 0 0 0-1.1-1.1c-3.3 0-5.6.7-7.4 2.2z"/><path d="M12 6.6v14.2"/></svg> Read the Case
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-mockup">
+                    <span class="sample-type">Product Teardown</span>
+                    <div class="browser-frame">
+                        <div class="browser-header">
+                            <div class="browser-dot red"></div>
+                            <div class="browser-dot yellow"></div>
+                            <div class="browser-dot green"></div>
+                            <div class="browser-url">teardown.analysis</div>
+                        </div>
+                        <div class="browser-content">
+                            <div class="mockup-header">
+                                <div class="mockup-logo">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="m12 3 8 4.5-8 4.5-8-4.5z"/>
+                                        <path d="m5 12.5 7 4 7-4"/>
+                                        <path d="m5 17 7 4 7-4"/>
+                                    </svg>
+                                    Build vs Reuse
+                                </div>
+                                <div class="mockup-nav">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="mini-ui">
+                                <div class="tier-board">
+                                    <div class="tier-col">
+                                        <div class="tier-title tier-core"><i></i>Core · reuse</div>
+                                        <div class="ticket"><b>Stock ledger</b><span class="tk-tag">as-is</span></div>
+                                        <div class="ticket"><b>UoM conversion</b><span class="tk-tag">as-is</span></div>
+                                    </div>
+                                    <div class="tier-col">
+                                        <div class="tier-title tier-std"><i></i>Std · adapt</div>
+                                        <div class="ticket"><b>Stock opname</b><span class="tk-tag">extend</span></div>
+                                        <div class="ticket warn"><b>FEFO picking</b><span class="tk-tag">clashes w/ FIFO core</span></div>
+                                    </div>
+                                    <div class="tier-col">
+                                        <div class="tier-title tier-spec"><i></i>Specific · rebuild</div>
+                                        <div class="ticket"><b>Recipe / BOM engine</b><span class="tk-tag">rebuild</span></div>
+                                        <div class="ticket crit"><b>SKU code field</b><span class="tk-tag">missing — day-1 must</span></div>
+                                    </div>
+                                </div>
+                                <div class="mini-footnote">
+                                    <span>Output: build-vs-reuse decision</span>
+                                    <span>Schema gaps flagged</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="project-tag">Competitive Analysis</span>
+                        <span class="project-tag">ERP Strategy</span>
+                        <span class="project-tag">Data Modeling</span>
+                    </div>
+                    <div class="sample-brand">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="url(#gm)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m12 3 8 4.5-8 4.5-8-4.5z"/>
+                            <path d="m5 12.5 7 4 7-4"/>
+                            <path d="m5 17 7 4 7-4"/>
+                        </svg>
+                        <span class="sample-brand-name">Dashflow POS</span>
+                        <span class="sample-brand-sub">Platform audit</span>
+                    </div>
+                    <h3>Teardown: Build-vs-Reuse for an ERP Rewrite</h3>
+                    <p>Audited an existing F&B platform's inventory domain before committing to a ground-up ERP rewrite. Mapped every capability into reuse tiers — core, standard, and product-specific — and flagged the schema gaps that had to exist from day one. The output wasn't a report; it was a build-vs-reuse decision engineering leads could act on immediately.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.6C10.2 5.1 7.9 4.4 4.6 4.4A1.1 1.1 0 0 0 3.5 5.5v12a1.1 1.1 0 0 0 1.1 1.1c3.3 0 5.6.7 7.4 2.2 1.8-1.5 4.1-2.2 7.4-2.2a1.1 1.1 0 0 0 1.1-1.1v-12a1.1 1.1 0 0 0-1.1-1.1c-3.3 0-5.6.7-7.4 2.2z"/><path d="M12 6.6v14.2"/></svg> Read the Analysis
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="achievements-section" id="achievements">
+        <div class="section-header">
+            <div class="section-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="url(#gm)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="10" r="7"/>
+                    <path d="M8.6 11.6 11 9.2l2 2 2.4-3.4"/>
+                    <path d="M8.4 16.3 7 22l5-2.4L17 22l-1.4-5.7"/>
+                </svg>
+            </div>
+            <h2>Achievements</h2>
+            <p>Concrete outcomes across four companies and four domains.</p>
+        </div>
+        <div class="achievements-grid">
+
+            <div class="achievement-card fade-in">
+                <div class="achievement-top">
+                    <div class="achievement-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6.6" rx="7" ry="2.8"/><path d="M5 6.6v4.2c0 1.55 3.13 2.8 7 2.8s7-1.25 7-2.8V6.6"/><path d="M17.2 15.4v4.4M15 17.8l2.2 2.2 2.2-2.2"/></svg></div>
+                    <span class="brand-lockup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.6" fill="currentColor" stroke="none"/></svg>eDOT</span>
+                </div>
+                <h3>Cut onboarding costs by <span>Rp 22M / month</span></h3>
+                <p>Strengthened the onboarding flow by resolving its bottlenecks and inefficiencies — migrating standard authentication off SMS while retaining OTP only for critical operations.</p>
+            </div>
+
+            <div class="achievement-card fade-in">
+                <div class="achievement-top">
+                    <div class="achievement-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3.2" width="8" height="8" rx="1.4"/><rect x="13" y="3.2" width="8" height="8" rx="1.4"/><rect x="3" y="13.2" width="8" height="8" rx="1.4"/><path d="M17 14.2v6M14 17.2h6"/></svg></div>
+                    <span class="brand-lockup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.6" fill="currentColor" stroke="none"/></svg>eDOT</span>
+                </div>
+                <h3>Built a QSR ERP supply-chain core, <span>0 → 1</span></h3>
+                <p>Greenfield design across data foundation, Bill of Materials, Menu Management, Production Planning, and Waste Management — a complete end-to-end SCM flow, built to wire cleanly into procurement next.</p>
+            </div>
+
+            <div class="achievement-card fade-in">
+                <div class="achievement-top">
+                    <div class="achievement-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.3"/><circle cx="19" cy="6" r="2.3"/><circle cx="12" cy="19" r="2.4"/><path d="M6.4 7.7c1.6 2.1 3.1 3.3 5.6 3.3s4-1.2 5.6-3.3M12 11v5.6"/></svg></div>
+                    <span class="brand-lockup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><ellipse cx="12" cy="12" rx="9" ry="4.2"/><ellipse cx="12" cy="12" rx="9" ry="4.2" transform="rotate(60 12 12)"/><circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none"/></svg>Quantum</span>
+                </div>
+                <h3>Unified <span>cross-institution</span> monitoring</h3>
+                <p>Coordinated between institutions and vendors to converge on a single monitoring & evaluation system for the national SuperApp, replacing fragmented per-department reporting with real-time status.</p>
+            </div>
+
+            <div class="achievement-card fade-in">
+                <div class="achievement-top">
+                    <div class="achievement-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.4"/><path d="M12 7.4V12l3.2 2"/><path d="m17.8 4.6 2.6-2M6.2 4.6 3.6 2.6"/></svg></div>
+                    <span class="brand-lockup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2.5 9c2.4-2.6 4.8-2.6 7.2 0s4.8 2.6 7.2 0 4.8-2.6 4.6 0"/><path d="M2.5 15c2.4-2.6 4.8-2.6 7.2 0s4.8 2.6 7.2 0 4.8-2.6 4.6 0"/></svg>TITIP</span>
+                </div>
+                <h3>Shipped vessel tracking <span>1 month early</span></h3>
+                <p>Delivered the mobile vessel-tracking app a full month ahead of deadline, wired live into the operations dashboard from day one.</p>
+            </div>
+
+            <div class="achievement-card fade-in">
+                <div class="achievement-top">
+                    <div class="achievement-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.9 20 6v6.1c0 4-3.3 7.4-8 9-4.7-1.6-8-5-8-9V6z"/><path d="M12 8.4v4M12 15.3h.01"/></svg></div>
+                    <span class="brand-lockup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2.5 9c2.4-2.6 4.8-2.6 7.2 0s4.8 2.6 7.2 0 4.8-2.6 4.6 0"/><path d="M2.5 15c2.4-2.6 4.8-2.6 7.2 0s4.8 2.6 7.2 0 4.8-2.6 4.6 0"/></svg>TITIP</span>
+                </div>
+                <h3>Hardened the system by <span>finding critical bugs</span></h3>
+                <p>Improved overall platform stability by proactively hunting down critical bugs from previous development cycles — not waiting for users to report them.</p>
+            </div>
+
+            <div class="achievement-card fade-in">
+                <div class="achievement-top">
+                    <div class="achievement-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 16.4h9.6V7.6H5.2L2.5 11.2z"/><path d="M12.1 16.4h4.3v-5.2h-1.9"/><circle cx="7" cy="18.8" r="1.7"/><circle cx="17.6" cy="18.8" r="1.7"/><path d="M15.5 6.6h6M17.5 9.6h4"/></svg></div>
+                    <span class="brand-lockup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6.5-6.1 6.5-11a6.5 6.5 0 1 0-13 0C5.5 14.9 12 21 12 21z"/><circle cx="12" cy="10" r="2.3"/></svg>Lacak</span>
+                </div>
+                <h3>Trucking Management System, <span>0 → 1</span></h3>
+                <p>Took a TMS from nothing to client-ready: all the research and ideation, then presented the product directly to potential clients.</p>
+            </div>
+
+            <div class="achievement-card fade-in">
+                <div class="achievement-top">
+                    <div class="achievement-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5V5.2A1.7 1.7 0 0 1 5.2 3.5h2.3M16.5 3.5h2.3A1.7 1.7 0 0 1 20.5 5.2v2.3M20.5 16.5v2.3a1.7 1.7 0 0 1-1.7 1.7h-2.3M7.5 20.5H5.2a1.7 1.7 0 0 1-1.7-1.7v-2.3"/><circle cx="9" cy="10.6" r="1.5"/><circle cx="15" cy="10.6" r="1.5"/><path d="M9.4 15.2c1.5 1.2 3.7 1.2 5.2 0"/></svg></div>
+                    <span class="brand-lockup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6.5-6.1 6.5-11a6.5 6.5 0 1 0-13 0C5.5 14.9 12 21 12 21z"/><circle cx="12" cy="10" r="2.3"/></svg>Lacak</span>
+                </div>
+                <h3>Defined <span>AI-powered monitoring</span></h3>
+                <p>Managed and defined requirements for an AI-powered monitoring system harnessing object recognition, machine learning, and face recognition.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2>Let's Build Something Together</h2>
+        <p>Currently open to Product Manager opportunities in ERP, platform, and enterprise product.</p>
+        <div class="social-links">
+            <a href="https://github.com/jhrnrd" target="_blank" class="social-link" title="GitHub">
+                <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.1a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.5 9.5 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.690 3.85-2.34 4.7-4.57 4.94.36.31.68.92.68 1.86l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2.1z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/jauhar-nurandyo/" target="_blank" class="social-link" title="LinkedIn">
+                <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M6.2 20.9H2.9V9.4h3.3zM4.55 7.95a1.92 1.92 0 1 1 0-3.85a1.92 1.92 0 0 1 0 3.85zM21.1 20.9h-3.29v-5.6c0-1.33-.02-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.7H10.5V9.4h3.16v1.57h.05a3.47 3.47 0 0 1 3.12-1.71c3.34 0 3.96 2.2 3.96 5.06z"/></svg>
+            </a>
+            <a href="mailto:jnurandyo@gmail.com" class="social-link" title="Email">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="5" width="18.4" height="14" rx="2.2"/><path d="m3.6 6.6 8.4 6 8.4-6"/></svg>
+            </a>
+        </div>
+        <a href="mailto:jnurandyo@gmail.com" class="contact-email">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m21 3.4-9.4 17.2-2.3-7.5-7.3-2.4z"/><path d="M21 3.4 9.3 13.1"/></svg>
+            jnurandyo@gmail.com
+        </a>
+    </section>
+
+    <footer>
+        <p>© 2026 Jauhar Nurandyo. Built with prototypes and cross-functional alignment.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(2, 6, 23, 0.95)';
+            } else {
+                nav.style.background = 'rgba(2, 6, 23, 0.8)';
+            }
+        });
+    </script>
+
+</body>
+</html>
