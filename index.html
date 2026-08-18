@@ -1772,21 +1772,27 @@
 				{
 					num: '01',
 					title: 'Template-Based Production Planning',
-					desc: 'Menu-to-production category mapping · unmapped items blocked from planning',
+					desc: 'Maps menu items directly to production categories to ensure unmapped items cannot enter the planning workflow.',
 					file: './prd/production-planning/prd-01-category-mapping.pdf'
 				},
 				{
 					num: '02',
 					title: 'Automated Planning & Order Dispatch Engine',
-					desc: 'Daypart planning grid · cumulative stock-coverage guardrail',
-					file: './prd/production-planning/prd-02-outlet-planning.pdf'
+					desc: 'Generates daypart-based production schedules and dispatches orders while maintaining stock-coverage safety limits.',
+					file: './prd/production-planning/automated-planning-and-order-dispatch-engine.pdf'
 				},
 				{
-					num: '03',
-					title: 'Production Order & Task Contract',
-					desc: 'Actuals capture · entries held until goods receipt clears',
-					file: './prd/production-planning/prd-03-production-entry.pdf'
-				}
+                    num: '03',
+                    title: 'Production Order & Task Contract',
+                    desc: 'Defines official production order contracts and holds task entries pending successful goods receipt verification.',
+                    file: './prd/production-planning/production-order-and-task.pdf'
+                },
+                {
+                    num: '04',
+                    title: 'Actual Production Capture & Stock Ledger',
+                    desc: 'Records real-time floor production yields and updates inventory balances across the centralized stock ledger.',
+                    file: './prd/production-planning/prd-04-file-name.pdf'
+                }
 			]
 		}
 	};
