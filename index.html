@@ -161,7 +161,8 @@
 
         .ic { width: 1em; height: 1em; flex-shrink: 0; }
 
-        .modal.btn {
+        /* Hero buttons — scoped so they don't clash with modal .btn styles */
+        .hero-buttons .btn {
             padding: 0.9rem 2rem;
             border-radius: 12px;
             font-size: 0.95rem;
@@ -175,24 +176,25 @@
             border: none;
         }
 
-        .modal.btn-primary {
+        .hero-buttons .btn-primary {
             background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
             color: white;
             box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
         }
 
-        .modal.btn-primary:hover {
+        .hero-buttons .btn-primary:hover {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
         }
 
-        .modal.btn-secondary {
+        .hero-buttons .btn-secondary {
             background: transparent;
             color: var(--text);
             border: 1px solid var(--border);
         }
 
-        .modal.btn-secondary:hover {
+        .hero-buttons .btn-secondary:hover {
             background: var(--secondary);
             border-color: var(--accent);
         }
@@ -888,118 +890,170 @@
             .process-steps { grid-template-columns: 1fr; }
             .nav-links { display: none; }
         }
+
+        /* ---------- Modals ---------- */
         .modal-overlay {
-	position: fixed;
-	inset: 0;
-	background: rgba(0, 0, 0, 0.85);
-	backdrop-filter: blur(6px);
-	display: none;
-	align-items: center;
-	justify-content: center;
-	z-index: 1000;
-	padding: 2rem;
-}
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(6px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 2rem;
+        }
 
-.modal-overlay.active { display: flex; }
+        .modal-overlay.active { display: flex; }
 
-.modal-box {
-	background: var(--card-bg, #1a1a2e);
-	border: 1px solid var(--border, #333);
-	border-radius: 12px;
-	width: 100%;
-	max-width: 900px;
-	max-height: 90vh;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-}
+        .modal-box {
+            background: var(--card-bg, #1a1a2e);
+            border: 1px solid var(--border, #333);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        }
 
-.modal-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1rem 1.5rem;
-	border-bottom: 1px solid var(--border, #333);
-}
+        .modal-box.narrow { max-width: 540px; }
 
-.modal-header h3 {
-	margin: 0;
-	font-size: 1.1rem;
-	color: var(--text, #e0e0e0);
-}
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border, #333);
+        }
 
-.modal-close {
-	background: none;
-	border: none;
-	color: var(--muted, #888);
-	font-size: 1.5rem;
-	cursor: pointer;
-	line-height: 1;
-	padding: 0.25rem;
-	transition: color 0.2s;
-}
+        .modal-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text, #e0e0e0);
+        }
 
-.modal-close:hover { color: #fff; }
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-muted, #888);
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0.25rem;
+            transition: color 0.2s;
+        }
 
-.modal-body {
-	flex: 1;
-	overflow: auto;
-	padding: 0;
-}
+        .modal-close:hover { color: #fff; }
 
-.prd-preview {
-	width: 100%;
-	height: 70vh;
-	border: none;
-	background: #fff;
-}
+        .modal-body {
+            flex: 1;
+            overflow: auto;
+            padding: 0;
+        }
 
-.prototype-frame {
-	width: 100%;
-	height: 75vh;
-	border: none;
-	background: #fff;
-	border-radius: 0 0 12px 12px;
-}
+        .prd-preview {
+            width: 100%;
+            height: 70vh;
+            border: none;
+            background: #fff;
+        }
 
-.modal-actions {
-	display: flex;
-	gap: 0.75rem;
-	padding: 1rem 1.5rem;
-	border-top: 1px solid var(--border, #333);
-	justify-content: flex-end;
-}
+        .prototype-frame {
+            width: 100%;
+            height: 75vh;
+            border: none;
+            background: #fff;
+            border-radius: 0 0 12px 12px;
+        }
 
-.btn {
-	padding: 0.6rem 1.2rem;
-	border-radius: 8px;
-	border: 1px solid var(--border, #333);
-	background: var(--card-bg, #1a1a2e);
-	color: var(--text, #e0e0e0);
-	font-size: 0.9rem;
-	cursor: pointer;
-	text-decoration: none;
-	display: inline-flex;
-	align-items: center;
-	gap: 0.4rem;
-	transition: all 0.2s;
-	font-family: inherit;
-}
+        .modal-actions {
+            display: flex;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border, #333);
+            justify-content: flex-end;
+        }
 
-.btn:hover {
-	background: var(--accent, #6366f1);
-	border-color: var(--accent, #6366f1);
-	color: #fff;
-}
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border, #333);
+            background: var(--card-bg, #1a1a2e);
+            color: var(--text, #e0e0e0);
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
 
-.btn-primary {
-	background: var(--accent, #6366f1);
-	border-color: var(--accent, #6366f1);
-	color: #fff;
-}
+        .btn:hover {
+            background: var(--accent, #6366f1);
+            border-color: var(--accent, #6366f1);
+            color: #fff;
+        }
 
-.btn-primary:hover { filter: brightness(1.15); }
+        .btn-primary {
+            background: var(--accent, #6366f1);
+            border-color: var(--accent, #6366f1);
+            color: #fff;
+        }
+
+        .btn-primary:hover { filter: brightness(1.15); }
+
+        /* ---------- PRD picker (projects with multiple PRDs) ---------- */
+        .prd-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 1.25rem 1.5rem;
+            overflow: auto;
+        }
+
+        .prd-list-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.9rem 1.1rem;
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.25s;
+            text-align: left;
+            width: 100%;
+            font-family: inherit;
+            color: var(--text);
+        }
+
+        .prd-list-item:hover {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.06);
+            transform: translateX(4px);
+        }
+
+        .prd-num {
+            width: 36px; height: 36px; flex: 0 0 36px;
+            border-radius: 10px;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: var(--accent-light);
+            font-weight: 700;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .prd-item-text { display: flex; flex-direction: column; gap: 0.1rem; }
+        .prd-item-title { font-weight: 600; font-size: 0.95rem; color: var(--text); }
+        .prd-item-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
     </style>
 <base target="_blank">
 </head>
@@ -1155,8 +1209,6 @@
         </div>
     </section>
 
-    </section>
-
 <section id="experience">
     <div class="section-header">
         <h2>Experience</h2>
@@ -1230,8 +1282,6 @@
 
     </div>
 </section>
-
-<section id="work">
 
     <section id="work">
         <div class="section-header">
@@ -1323,10 +1373,10 @@
                     <h3>Production Planning: BRD to Working Prototype</h3>
                     <p>Full design cycle from a draft BRD to a three-screen interactive prototype — HO category mapping, outlet planning, and kitchen production entry — sharing one live data model. Went beyond the spec to encode system invariants: plans record intent without moving stock, unmapped items are blocked from planning, a cumulative stock-coverage guardrail flags shortage cascades across the horizon, and production entries are held (not lost) until goods receipt clears.</p>
                     <div class="project-links">
-                        <a href="#" class="project-link">
-                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.2h7L18.5 8.7v12H6z"/><path d="M13 3.2v5.5h5.5"/><path d="M8.8 12.4h6.4M8.8 15.6h6.4M8.8 18h4"/></svg> View PRD
+                        <a href="#" class="project-link" onclick="event.preventDefault(); openPrdPicker('production-planning');">
+                            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.2h7L18.5 8.7v12H6z"/><path d="M13 3.2v5.5h5.5"/><path d="M8.8 12.4h6.4M8.8 15.6h6.4M8.8 18h4"/></svg> View PRDs
                         </a>
-                        <a href="#" class="project-link">
+                        <a href="#" class="project-link" onclick="event.preventDefault(); openProtoModal('Production Planning Prototype', './prototypes/production-planning/index.html');">
                             <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M7.5 4.8v14.4L19.5 12z"/></svg> Try Prototype
                         </a>
                     </div>
@@ -1383,8 +1433,8 @@
                     <div class="project-links">
   <a href="#" class="project-link" onclick="event.preventDefault(); openPrdModal('Ship to Shore PRD', './prd/ship-to-shore-prd.pdf');">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M6 3.2h7L18.5 8.7v12"/>
-      <path d="M3 3.2v5.5h5.5"/>
+      <path d="M6 3.2h7L18.5 8.7v12H6z"/>
+      <path d="M13 3.2v5.5h5.5"/>
       <path d="M8.8 12.4h6.4M8.8 15.6h6.4M8.8 18h4"/>
     </svg>
     View PRD
@@ -1396,7 +1446,7 @@
     Try Prototype
   </a>
 </div>
-                
+
                 </div>
             </div>
 
@@ -1654,88 +1704,8 @@
     <footer>
         <p>© 2026 Jauhar Nurandyo. Built with prototypes and cross-functional alignment.</p>
     </footer>
-    
-<script>
-function openPrdModal(title, fileUrl) {
-	document.getElementById('prdTitle').textContent = title;
-	document.getElementById('prdFrame').src = fileUrl;
-	document.getElementById('prdDownload').href = fileUrl;
-	document.getElementById('prdModal').classList.add('active');
-	document.body.style.overflow = 'hidden';
-}
 
-function openProtoModal(title, protoUrl) {
-	document.getElementById('protoTitle').textContent = title;
-	document.getElementById('protoFrame').src = protoUrl;
-	document.getElementById('protoModal').classList.add('active');
-	document.body.style.overflow = 'hidden';
-}
-
-function closeModal(modalId) {
-	document.getElementById(modalId).classList.remove('active');
-	document.body.style.overflow = '';
-	if (modalId === 'prdModal') document.getElementById('prdFrame').src = '';
-	if (modalId === 'protoModal') document.getElementById('protoFrame').src = '';
-}
-
-document.querySelectorAll('.modal-overlay').forEach(overlay => {
-	overlay.addEventListener('click', (e) => {
-		if (e.target === overlay) closeModal(overlay.id);
-	});
-});
-
-document.addEventListener('keydown', (e) => {
-	if (e.key === 'Escape') {
-		closeModal('prdModal');
-		closeModal('protoModal');
-	}
-});
-</script>
-
-    <script>
-	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-		anchor.addEventListener('click', function(e) {
-			const href = this.getAttribute('href');
-			if (!href || href === '#' || href.length <= 1) return;
-			e.preventDefault();
-			try {
-				const target = document.querySelector(href);
-				if (target) {
-					target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-				}
-			} catch (err) {
-				console.log('Scroll target not found:', href);
-			}
-		});
-	});
-</script>
-        });
-
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        const nav = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(2, 6, 23, 0.95)';
-            } else {
-                nav.style.background = 'rgba(2, 6, 23, 0.8)';
-            }
-        });
-    </script>
-<!-- PRD MODAL -->
+<!-- PRD MODAL (single PRD viewer) -->
 <div class="modal-overlay" id="prdModal">
 	<div class="modal-box">
 		<div class="modal-header">
@@ -1746,6 +1716,7 @@ document.addEventListener('keydown', (e) => {
 			<iframe class="prd-preview" id="prdFrame" src=""></iframe>
 		</div>
 		<div class="modal-actions">
+			<button class="btn" id="prdBackBtn" style="display:none; margin-right:auto;" onclick="backToPrdList()">&lsaquo; All PRDs</button>
 			<a id="prdDownload" href="" download class="btn btn-primary">
 				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 					<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -1775,8 +1746,88 @@ document.addEventListener('keydown', (e) => {
 	</div>
 </div>
 
+<!-- PRD PICKER MODAL (projects with multiple PRDs) -->
+<div class="modal-overlay" id="prdPickerModal">
+	<div class="modal-box narrow">
+		<div class="modal-header">
+			<h3 id="prdPickerTitle">Select a PRD</h3>
+			<button class="modal-close" onclick="closeModal('prdPickerModal')">&times;</button>
+		</div>
+		<div class="prd-list" id="prdPickerList"></div>
+		<div class="modal-actions">
+			<button class="btn" onclick="closeModal('prdPickerModal')">Close</button>
+		</div>
+	</div>
+</div>
+
 <script>
-	function openPrdModal(title, fileUrl) {
+	/* ---------- PRD sets for projects with multiple PRDs ---------- */
+	/* Edit the titles, descriptions, and file paths below to match your actual PDFs. */
+	/* To give another project a picker later, add a new key here and point its      */
+	/* "View PRDs" link at openPrdPicker('that-key').                                 */
+	const prdSets = {
+		'production-planning': {
+			title: 'Production Planning — PRD Suite',
+			items: [
+				{
+					num: '01',
+					title: 'HO Category Mapping',
+					desc: 'Menu-to-production category mapping · unmapped items blocked from planning',
+					file: './prd/production-planning/prd-01-category-mapping.pdf'
+				},
+				{
+					num: '02',
+					title: 'Outlet Production Planning',
+					desc: 'Daypart planning grid · cumulative stock-coverage guardrail',
+					file: './prd/production-planning/prd-02-outlet-planning.pdf'
+				},
+				{
+					num: '03',
+					title: 'Kitchen Production Entry',
+					desc: 'Actuals capture · entries held until goods receipt clears',
+					file: './prd/production-planning/prd-03-production-entry.pdf'
+				}
+			]
+		}
+	};
+
+	let currentPrdSet = null;
+
+	function openPrdPicker(setKey) {
+		const set = prdSets[setKey];
+		if (!set) return;
+		document.getElementById('prdPickerTitle').textContent = set.title;
+		const list = document.getElementById('prdPickerList');
+		list.innerHTML = '';
+		set.items.forEach(item => {
+			const btn = document.createElement('button');
+			btn.type = 'button';
+			btn.className = 'prd-list-item';
+			btn.innerHTML =
+				'<span class="prd-num">' + item.num + '</span>' +
+				'<span class="prd-item-text">' +
+					'<span class="prd-item-title">' + item.title + '</span>' +
+					'<span class="prd-item-desc">' + item.desc + '</span>' +
+				'</span>';
+			btn.addEventListener('click', () => {
+				closeModal('prdPickerModal');
+				openPrdModal(item.title, item.file, setKey);
+			});
+			list.appendChild(btn);
+		});
+		document.getElementById('prdPickerModal').classList.add('active');
+		document.body.style.overflow = 'hidden';
+	}
+
+	function backToPrdList() {
+		const setKey = currentPrdSet;
+		closeModal('prdModal');
+		if (setKey) openPrdPicker(setKey);
+	}
+
+	function openPrdModal(title, fileUrl, fromSet) {
+		currentPrdSet = fromSet || null;
+		document.getElementById('prdBackBtn').style.display = currentPrdSet ? 'inline-flex' : 'none';
 		document.getElementById('prdTitle').textContent = title;
 		document.getElementById('prdFrame').src = fileUrl;
 		document.getElementById('prdDownload').href = fileUrl;
@@ -1792,7 +1843,9 @@ document.addEventListener('keydown', (e) => {
 	}
 
 	function closeModal(modalId) {
-		document.getElementById(modalId).classList.remove('active');
+		const modal = document.getElementById(modalId);
+		if (!modal) return;
+		modal.classList.remove('active');
 		document.body.style.overflow = '';
 		if (modalId === 'prdModal') document.getElementById('prdFrame').src = '';
 		if (modalId === 'protoModal') document.getElementById('protoFrame').src = '';
@@ -1808,13 +1861,16 @@ document.addEventListener('keydown', (e) => {
 		if (e.key === 'Escape') {
 			closeModal('prdModal');
 			closeModal('protoModal');
+			closeModal('prdPickerModal');
 		}
 	});
 
+	/* Smooth scroll for in-page nav; placeholder "#" links do nothing (prevents
+	   the <base target="_blank"> from opening them in a new tab). */
 	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 		anchor.addEventListener('click', function(e) {
 			const href = this.getAttribute('href');
-			if (!href || href === '#' || href.length <= 1) return;
+			if (!href || href.length <= 1) { e.preventDefault(); return; }
 			e.preventDefault();
 			try {
 				const target = document.querySelector(href);
@@ -1827,6 +1883,7 @@ document.addEventListener('keydown', (e) => {
 		});
 	});
 
+	/* Fade-in on scroll */
 	const observerOptions = {
 		threshold: 0.1,
 		rootMargin: '0px 0px -50px 0px'
@@ -1842,6 +1899,7 @@ document.addEventListener('keydown', (e) => {
 
 	document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+	/* Nav background on scroll */
 	const nav = document.querySelector('nav');
 	window.addEventListener('scroll', () => {
 		if (window.scrollY > 50) {
